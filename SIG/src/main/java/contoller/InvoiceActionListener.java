@@ -132,6 +132,17 @@ public class InvoiceActionListener implements ActionListener{
                     InvoiceLine line = new InvoiceLine(subArr2, price, count, inv);
                     inv.getLines().add(line);
                 }
+                System.out.println("**** READING FILES START ****");
+                System.out.println("&&&& HEADER FILE &&&&");
+                for (String hLine : headerLines){
+                    System.out.println(hLine);
+                    }  
+                System.out.println("&&&& LINE FILE &&&&");  
+                for (String invLine: lineLines){
+                    System.out.println(invLine);
+                }  
+                System.out.println("**** READING FILES END ****");
+                
             }
             InvoiceHeaderTableModel ITM = new InvoiceHeaderTableModel(invoiceHeader);
             frame.setITM(ITM);
@@ -142,7 +153,7 @@ public class InvoiceActionListener implements ActionListener{
     {
         JOptionPane.showMessageDialog(frame, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
-
+    
  }
     private void saveFiles() {
         ArrayList<InvoiceHeader> invoicesArray = frame.getInvoiceArray();
